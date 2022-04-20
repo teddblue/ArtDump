@@ -16,7 +16,7 @@
             url: dir,
             success: function(data){
                 $(data).find("a.contains(" + ext + ")").each(function(){
-                    var filename = this.href.replace(window.location.host, "").replace("https://", "")
+                    var filename = this.href.replace(window.location.host, "").replace("images/", "")
                     $(body).append("<img src = '" + dir + ext + "'>")
                 })
             }
