@@ -10,17 +10,17 @@
 <body>
     <p>some of my work:</p>
     <script>
-        var dir = "images/"
-        var ext = ".png"
+        var folder = "images/";
         $.ajax({
-            url: dir,
-            success: function(data){
-                $(data).find("a.contains(" + ext + ")").each(function(){
-                    var filename = this.href.replace(window.location.host, "").replace("images/", "")
-                    $(body).append("<img src = '" + dir + ext + "'>")
-                })
+            url : folder,
+            success: function (data) {
+                $(data).find("a").attr("href", function (i, val) {
+                    if( val.match(/\.(jpe?g|png|gif)$/) ) { 
+                        $("body").append( "<img src='"+ folder + val +"'>" );
+                    } 
+                });
             }
-        })
+        });
     </script>
 </body>
 </html>
